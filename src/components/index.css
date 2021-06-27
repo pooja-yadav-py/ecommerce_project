@@ -6,7 +6,7 @@
     left: 2px;
     width: 220px;
     height:100vh;
-    background-color: rgb(240, 211, 211);
+    background-color: rgb(250, 244, 244);
     z-index: 1000;
     animation-name: example;
     animation-duration: .5s;
