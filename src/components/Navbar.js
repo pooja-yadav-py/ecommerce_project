@@ -1,23 +1,22 @@
 import React,{useState} from 'react';
-import '../index.css';
-import './index.css';
-import { Link,NavLink } from 'react-router-dom';
-
+import { BiChevronDown,BiChevronUp,BiCart } from "react-icons/bi";
 import MenuIcon from '@material-ui/icons/Menu';
-import LocalMallIcon from '@material-ui/icons/LocalMall';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 
 
-const Navbar = () => {
+
+
+const Navbar = (props) => {
+   console.log(props,"navbarprops");
   const [showSideBar, setSideBar] = useState(false);
   const [showBrandList, setBrandList] = useState(false);
     return (
         <>
         <div>
-            <nav className="bottom navbar navbar-light bg-light d-flex justify-content-around">
-              <a className="navbar-brand" ><MenuIcon onClick={() => setSideBar(true)}/><sup>MERN Store</sup></a>
+            <nav className="bottom navbar navbar-light bg-light d-flex justify-content-betwwen">
+              <a className="navbar-brand" ><MenuIcon onClick={() => setSideBar(true)}/><sup><Link to="/">MERN Store</Link></sup></a>
               
               { showSideBar && 
               <div className="SideBar">
@@ -35,12 +34,14 @@ const Navbar = () => {
          </ul>
          </div>
          </div> }              
+         
               <div className="navbar_right_items d-flex justify-content-end ">   
-              <LocalMallIcon style={{ fontSize: 15 }}/>
+              <BiCart className="mt-1 mr-2 Right_side_bar" onClick={() => {props.setShowRightSidebar(true)}}/>{props.cartItems ? props.cartItems.length: 0} &nbsp;
+              
               <div className="dropdown">
                 <button className="Brandbtn" onClick={() => setBrandList(!showBrandList)}>Brands
- 
-                {showBrandList ? <ArrowDropDownIcon /> : <ArrowDropUpIcon /> }
+               
+                {showBrandList ? <BiChevronDown /> : <BiChevronUp /> }
                  </button>
                 { showBrandList && 
                 <div className="Brands_product">
@@ -66,12 +67,12 @@ const Navbar = () => {
             </div>
  }
                 </div>
-              <div className="Shop"><a href="#">Shop</a></div> 
-              <div class="dropdown">
-                <button class="dropbtn">Welcome</button>
-                <div class="dropdown-content">
-                    <a href="#">Login</a>
-                    <a href="#">Logout</a>
+              <div className="Shop"><Link to="/shop">Shop</Link></div> 
+              <div className="dropdown">
+                <button className="dropbtn_welcome">Welcome</button>
+                <div className="dropdown-content">
+                    <Link to="/login">Login</Link>
+                    <Link to="/Signup">Sign Up</Link>
                     
                 </div>
                 </div>

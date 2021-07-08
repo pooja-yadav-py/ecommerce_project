@@ -1,0 +1,206 @@
+.overlay{
+    position: absolute;
+  z-index: 1;
+  background: rgba(0,0,0,.8);
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+.product_container{
+    width: 98%;   
+}
+.product_img{
+    width: 400px;
+}
+.product_img img{
+    width: 400px;
+    height: 290px;
+    border-radius: 0px;
+    margin-left: 10%;
+}
+
+.product_details{
+    width: 800px;
+    margin-left: 30px;
+    
+}
+.product_details .product_inner{
+    width: 570px;
+    height: 370px;
+    box-shadow: 2px 2px 2px .2px rgb(219, 214, 214),-2px -2px 2px .2px rgb(219, 214, 214);
+}
+.product_details .product_inner .product_inner_container{
+    margin-left: 5px;
+    padding-top: 8px;
+    width: 98%;  
+    
+}
+
+.product_details label{
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* .product_details div div{
+    height: 50px;
+} */
+.product_details div div img{
+    width: 40px;
+    height:40px;
+    margin-left: 3px;
+    margin-top: 4px;
+}
+.product_details .fb{
+  width:50px;
+  height: 35px;
+  margin-top: 8px;
+}
+.product_details .twitter{
+  width:35px;
+  height: 35px;
+  margin-top: 8px;
+  margin-left: -2px;
+}
+.product_details .mail{
+    width:33px;
+    height: 33px;
+    margin-top: 8px;
+}
+.product_details h6{
+    margin-bottom: -5px;
+    color: blue;
+   
+}
+.product_details small{
+    margin-top: -10px;
+    
+}
+.product_details hr{
+    margin-bottom: 1px;
+}
+.product_details .product_price{
+    margin-top: -4px;
+    margin-bottom: 5px;
+    
+}
+.product_details button{
+    border:none;
+}
+.product_details .btn{
+    width: 150px;
+    font-size: 15px;
+    background-color: transparent;
+    border-radius: 0px;
+    cursor: pointer;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    box-shadow: 2px 2px 3px rgb(201, 195, 195), -2px -2px 3px  rgb(235, 231, 231);
+}
+
+.product_details .btn:hover{
+    background-color: blue;
+    color: white;
+}
+
+.product_middle_part{
+    margin-top: 20px;
+    width: 90%;
+    background-color: blue;
+}
+.product_rating .product_rating_inner{
+    width: 400px;
+    height: 170px;
+    margin-left: 35px; 
+    box-shadow: 2px 2px 3px rgb(201, 195, 195), -2px -2px 3px  rgb(235, 231, 231);;
+    
+}
+.product_rating hr{
+    width: 85%;
+    border: 2px solid rgb(224, 221, 221);
+    background-color: rgb(224, 221, 221);
+}
+.product_rating img{
+    width: 30px;
+    height: 40px;
+    
+}
+.product_rating .check_icon{
+    font-size: 25px;
+    margin-top: 5px;
+    
+}
+.product_goof div{
+    width: 570px;
+    height: 100px;
+    background-color: gray;
+    margin-left: 10%;
+}
+.product_review_inner .container{
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    margin-left: -40px;
+
+    
+}
+
+.product_review_inner{
+    margin-left:9%;
+    width: 570px;
+    height: 520px;
+    box-shadow: 2px 2px 3px rgb(201, 195, 195), -2px -2px 3px  rgb(235, 231, 231);;
+
+    
+}
+.product_review_inner .form-group {
+    width: 94%;
+    
+}
+.product_review_inner input{
+    width: 100%;
+}
+.product_review_inner input:focus{
+    box-shadow: none;
+    border: 1px solid rgb(214, 208, 208);
+}
+.product_review_inner textarea{
+    width: 100%;
+}
+.product_review_inner textarea:focus{
+    box-shadow: none;
+    border: 1px solid rgb(214, 208, 208);
+}
+.product_review_inner .container .star-widget{
+    margin-top: -15px;
+    margin-left: -35px;
+}
+.product_review_inner .container .star-widget input{
+    display:none;
+}
+
+.star-widget label{
+    font-size: 20px;
+    color: rgb(167, 160, 160);
+    transition: all 0.2s ease;
+    float: right;
+    
+}
+ input:not(:checked) ~ label:hover, 
+ input:not(:checked) ~ label:hover~label{
+    color:#fd4;
+}
+ input:checked ~ label{
+    color:#fd4;
+}
+/* input#rate-5:checked ~ label{
+    color:#fe7;
+    
+}  */
+.form-group select:focus{
+    box-shadow: none;
+    border: 1px solid rgb(214, 208, 208);
+}
+.product_review .btn{
+    border:1px solid rgb(216, 206, 206);
+    padding: 4px 10px 4px 10px;
+    margin-top: 5px;
+}

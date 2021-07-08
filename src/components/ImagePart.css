@@ -1,0 +1,22 @@
+.center{
+    width: 400px;
+    height: 200px;
+  }
+  .left{
+    height: 110px;
+    width: 200px;
+  }
+  .right{
+    height: 75px;
+    width: 200px;
+  }
+.container{
+    margin-top: 20px;
+  }
+  .container img{
+     border-style: none;
+     border-radius: 7px;
+  }
+  /* .row div{
+    margin-right: -20px;
+  }  */

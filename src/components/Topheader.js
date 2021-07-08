@@ -1,5 +1,5 @@
 import React from "react";
-import '../index.css';
+import './Topheader.css';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import PaymentIcon from '@material-ui/icons/Payment';
 import CallIcon from '@material-ui/icons/Call';
@@ -8,7 +8,7 @@ const Topheader = () => {
   return (
      <> 
     <nav className="navbar navbar-light bg-dark ">
-      <div className="container-fluid d-flex justify-content-center">
+      <div className="container-fluid d-flex justify-content-arround">
         <a className="navbar-brand text-light " href="#">
           <LocalShippingIcon style={{ fontSize: 15 }}/>&nbsp; Free Shipping
         </a>

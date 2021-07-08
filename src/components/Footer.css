@@ -1,0 +1,47 @@
+.card{
+    margin-top: 90px;
+    border-bottom: 0px;
+  }
+  .card-header{
+    width: 300px;
+    background: transparent;
+    border-bottom: 0px;
+    
+  }
+.card-header p{
+    font-size: small;
+    color: gray;
+    margin-bottom: 1px;
+  }
+.card-header h6{
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+  }
+.vl{
+    border-left: 1px solid rgba(224, 221, 221, 0.945);
+    height: 100px;
+    padding-right: 10px;
+  }
+  .inputbox{
+    width: 120px;
+    height: 25px;
+    padding: 0px;
+    border: 1px solid gray;
+    border-radius: 0px;
+  } 
+  ::placeholder{
+    font-size: 15px;
+    text-align: center;
+  }
+  .btn{
+    background-color: transparent;
+    border: 1px solid gray;
+    padding: 1px 3px 1px 3px;
+  }
+  small{
+    font-size: 10px;
+  }
+  .card img{
+    width: 30px;
+    height: 30px;
+  }

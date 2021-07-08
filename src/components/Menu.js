@@ -1,0 +1,68 @@
+const Menu = [
+    {
+        id:1,
+        image: "../Images/shoes.jpg",
+        title:"Nike running Shoes",
+        companyName:"Nike",
+        description:"Some quick example text to build on the card title.",
+        price:"50",
+    },
+    {
+        id:2,
+        image: "../Images/handbag.jpg",
+        title:"Gucci Handbag",
+        companyName:"Gucci",
+        description:"A signature Gucci handbag line known for its curved half-moon shape and signature hardware.",
+        price:"20",
+    },
+    {
+        id:3,
+        image: "../Images/shirt.jpg",
+        title:"Polo Shirt",
+        companyName:"Polo",
+        description:"A polo shirt is a form of shirt with a collar, a placket neckline with two or three buttons.",
+        price:"50",
+    },
+    {
+        id:4,
+        image: "../Images/slimfit.jpg",
+        title:"Slim Fit Shirt",
+        companyName:"Calvin Klein",
+        description:"A slim-fit shirt is tapered so that the waist is narrower that the shoulders and chest.it's pure cotton",
+        price:"29",
+    },
+    {
+        id:5,
+        image: "../Images/handbag2.jpg",
+        title:"Gucci Handbag",
+        companyName:"Gucci",
+        description:"Some quick example text to build on the card title.",
+        price:"79",
+    },
+    {
+        id:6,
+        image: "../Images/perfume.jpg",
+        title:"Calvin Kilen Perfume",
+        companyName:"Calvin Klein",
+        description:"Some quick example text to build on the card title.",
+        price:"3",
+    },
+    {
+        id:7,
+        image: "../Images/product.jpg",
+        title:"Product Image",
+        companyName:"tommy Hilfiger",
+        description:"Some quick example text to build on the card title.",
+        price:"1",
+    },
+    {
+        id:8,
+        image: "../Images/converse.jpg",
+        title:"Converse",
+        companyName:"MERN",
+        description:"Some quick example text to build on the card title.",
+        price:"40",
+    },
+];
+
+export default Menu;

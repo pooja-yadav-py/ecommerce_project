@@ -3,10 +3,14 @@ import fb from '../images/fb.png';
 import pin from '../images/pin.png';
 import twitter from '../images/twitter.jpg';
 import insta from '../images/insta.jpg';
+ import './Footer.css';
+
+
 
 
 const footer = () => {
     return (
+      <>
         <div>
             <div className="card">
             <div className="row justify-content-md-center">
@@ -47,6 +51,7 @@ const footer = () => {
             </div>
             </div>
             </div>
+            </>
     )
 }
 
