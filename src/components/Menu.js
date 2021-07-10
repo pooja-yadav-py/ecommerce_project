@@ -6,6 +6,8 @@ const Menu = [
         companyName:"Nike",
         description:"Some quick example text to build on the card title.",
         price:"50",
+        quantity:1,
+
     },
     {
         id:2,
@@ -14,6 +16,7 @@ const Menu = [
         companyName:"Gucci",
         description:"A signature Gucci handbag line known for its curved half-moon shape and signature hardware.",
         price:"20",
+        quantity:1,
     },
     {
         id:3,
@@ -22,6 +25,7 @@ const Menu = [
         companyName:"Polo",
         description:"A polo shirt is a form of shirt with a collar, a placket neckline with two or three buttons.",
         price:"50",
+        quantity:1,
     },
     {
         id:4,
@@ -30,6 +34,7 @@ const Menu = [
         companyName:"Calvin Klein",
         description:"A slim-fit shirt is tapered so that the waist is narrower that the shoulders and chest.it's pure cotton",
         price:"29",
+        quantity:1,
     },
     {
         id:5,
@@ -38,6 +43,7 @@ const Menu = [
         companyName:"Gucci",
         description:"Some quick example text to build on the card title.",
         price:"79",
+        quantity:1,
     },
     {
         id:6,
@@ -46,7 +52,8 @@ const Menu = [
         companyName:"Calvin Klein",
         description:"Some quick example text to build on the card title.",
         price:"3",
-    },
+        quantity:1,   
+     },
     {
         id:7,
         image: "../Images/product.jpg",
@@ -54,7 +61,8 @@ const Menu = [
         companyName:"tommy Hilfiger",
         description:"Some quick example text to build on the card title.",
         price:"1",
-    },
+        quantity:1,
+        },
     {
         id:8,
         image: "../Images/converse.jpg",
@@ -62,6 +70,7 @@ const Menu = [
         companyName:"MERN",
         description:"Some quick example text to build on the card title.",
         price:"40",
+        quantity:1,
     },
 ];
 

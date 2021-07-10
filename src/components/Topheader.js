@@ -9,15 +9,15 @@ const Topheader = () => {
      <> 
     <nav className="navbar navbar-light bg-dark ">
       <div className="container-fluid d-flex justify-content-arround">
-        <a className="navbar-brand text-light " href="#">
+        <p className="navbar-brand text-light ">
           <LocalShippingIcon style={{ fontSize: 15 }}/>&nbsp; Free Shipping
-        </a>
-        <a className="navbar-brand text-light" href="#">
+        </p>
+        <p className="navbar-brand text-light">
           <PaymentIcon style={{ fontSize: 15 }}/>&nbsp; Payment Methods
-        </a>
-        <a className="navbar-brand text-light" href="#">
+        </p>
+        <p className="navbar-brand text-light">
           <CallIcon style={{ fontSize: 15 }}/>&nbsp; Call us 951-999-9999
-        </a>
+        </p>
       </div>
     </nav>
 

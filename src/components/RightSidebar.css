@@ -31,6 +31,7 @@ hr{
     font-size: 30px;
     background-color: transparent;
     cursor: pointer;
+    border:none;
     
 }
 
@@ -51,31 +52,34 @@ hr{
 .product_list_rightSidebar .product_name{
     line-height: 3;
     margin-left: 5%;
-    width: 300px;
+    width: 286px;
     
 }
 .deleteIcon{
    line-height: 3;
-    cursor: pointer;
-    
-    
+   cursor: pointer;    
 }
 .price_rightSidebar{
     margin-top: -10px;
 }
 .price_rightSidebar .price{
-    margin-left: 75%;
+    margin-left: 78%;
 }
 .quantity_rightSidebar{
     margin-top: -15px;
 }
 .quantity_rightSidebar .quantity{
-    margin-left: 70%;
+    margin-left: 73%;
 }
 .scrollbar{
     position: relative;
     width: 422px;
     height: 150px;
+}
+.empty_cart{
+    display: flex;
+    justify-content: center;
+    margin-top: 50%;
 }
 .footer_rightSidebar{
    width:450px;

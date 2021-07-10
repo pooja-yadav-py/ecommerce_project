@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import "./RightSidebar.css";
@@ -22,11 +22,16 @@ const RightSidebar = (props) => {
     props.updateCartItems(cartItems);
     console.log(props.cartItems);
   };
+  let sum = 0;
+  props.cartItems.forEach((item) => {
+    sum = sum + item.price * item.quantity;
+  });
+  console.log(sum);
 
   return (
     <>
-      <div className=" outer_rightbar ">
-        <div className=" rigthSidebar me-5">
+      <div className="outer_rightbar">
+        <div className="rigthSidebar me-5">
           <div>
             <button
               className="hide_rightbar"
@@ -34,9 +39,8 @@ const RightSidebar = (props) => {
             >
               x
             </button>
-            <hr />
           </div>
-          {props.cartItems.length? (
+          {props.cartItems.length ? (
             <div>
               <div className="scrollbar">
                 <Scrollbars style={{ width: 430, height: 350 }}>
@@ -48,12 +52,13 @@ const RightSidebar = (props) => {
                       companyName,
                       description,
                       price,
+                      quantity,
                     } = elem;
                     console.log(elem);
                     return (
                       <div className="scroll">
                         <hr />
-                        <div className="product_list_rightSidebar d-flex flex-row">
+                        <div className="product_list_rightSidebar d-flex flex-row ml-2">
                           <div>
                             <img src={image} alt="image" />
                           </div>
@@ -61,7 +66,9 @@ const RightSidebar = (props) => {
                             <p>
                               <Link
                                 to={{
-                                  pathname: `/product/${title.split(" ").join("-")}`,
+                                  pathname: `/product/${title
+                                    .split(" ")
+                                    .join("-")}`,
                                   state: {
                                     elem: elem,
                                   },
@@ -76,13 +83,13 @@ const RightSidebar = (props) => {
                             <RiDeleteBin7Line onClick={() => removeItem(id)} />
                           </div>
                         </div>
-                        <div className=" price_rightSidebar d-flex flex-row">
+                        <div className=" price_rightSidebar d-flex flex-row ml-3">
                           <p>price</p>
-                          <p className="price">${price}</p>
+                          <p className="price">${quantity * price}</p>
                         </div>
-                        <div className="quantity_rightSidebar d-flex flex-row">
+                        <div className="quantity_rightSidebar d-flex flex-row ml-3">
                           <p>Quantity</p>
-                          <p className="quantity">{props.state}</p>
+                          <p className="quantity">{quantity}</p>
                         </div>
                       </div>
                     );
@@ -98,7 +105,7 @@ const RightSidebar = (props) => {
                   </div>
                   <div className="d-flex ">
                     <p className="ml-2">Total</p>
-                    <p className="Total">$0</p>
+                    <p className="Total">${sum}</p>
                   </div>
                 </div>
                 <div className="d-flex">
@@ -112,7 +119,7 @@ const RightSidebar = (props) => {
               </div>
             </div>
           ) : (
-            "your cart is empty"
+            <p className="empty_cart">😄your cart is empty 😄</p>
           )}{" "}
         </div>
       </div>
