@@ -1,15 +1,3 @@
-.navbar-brand{
-  cursor: pointer;
-}
-.navbar-brand sup a{
-  cursor: pointer;
-  color: black;
-
-} 
-.navbar-brand sup a:hover{
-  text-decoration-line: none;
-}
-
 .Brandbtn{
     background:transparent;
     border: none;

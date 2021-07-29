@@ -29,7 +29,7 @@ const footer = () => {
               <h6>Newsletter</h6>
               <p>Sign Up for Our Newsletter</p>
 
-              <form class="form-inline my-2 my-lg-0">
+              <form className="form-inline my-2 my-lg-0">
                 <input
                   className="inputbox form-control  "
                   type="search"

@@ -34,15 +34,15 @@ export const Review = () => {
                         </div>
                       </div>
                      </div>
-                    <div class="form-group">
+                    <div className="form-group">
                       <label for="exampleFormControlSelect1">Will You Recommend This Product</label>
-                      <select class="form-control" id="exampleFormControlSelect1">
+                      <select className="form-control" id="exampleFormControlSelect1">
                         <option hidden>choose...</option>
                         <option>Yes</option>
                         <option>No</option>
                       </select>
                     </div>
-                    <button type="button" class="btn btn-light">Publish Review</button>
+                    <button type="button" className="btn btn-light">Publish Review</button>
                   </form>
                 </div>
                 </div>

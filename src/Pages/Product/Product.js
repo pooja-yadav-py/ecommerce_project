@@ -17,6 +17,7 @@ const Product = (props) => {
         setShowRightSidebar={props.setShowRightSidebar}
         ShowRightSidebar={props.ShowRightSidebar}
         updateCartItems={props.updateCartItems}
+        setSelectedCategory={props.setSelectedCategory}
       />
       <div className="row">
         <div className="row container product_container mx-auto">

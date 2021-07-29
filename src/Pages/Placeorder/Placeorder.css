@@ -1,0 +1,23 @@
+.outer_Container {
+  display: flex;
+  justify-content: center;
+}
+.inner_Container {
+  text-align: center;
+}
+
+.placorder button {
+  border: 1px solid gray;
+}
+.placorder button:hover {
+  background-color: #007bff9c;
+  color: white;
+  cursor: pointer;
+}
+.placeorder_Link {
+  color: black;
+}
+.placeorder_Link:hover {
+  text-decoration: none;
+  color: white;
+}

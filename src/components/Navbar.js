@@ -1,25 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { BiChevronDown, BiChevronUp, BiCart } from "react-icons/bi";
 import MenuIcon from "@material-ui/icons/Menu";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import RightSidebar from "./RightSidebar";
 
 const Navbar = (props) => {
-  console.log(props, "navbarprops");
+  console.log(props);
+  const rememberMe = JSON.parse(localStorage.getItem("user"));
   const [showSideBar, setSideBar] = useState(false);
   const [showBrandList, setBrandList] = useState(false);
+
+  let menuRef = useRef();
+  console.log(menuRef);
+  useEffect(() => {
+    const handleClick = (event) => {
+      console.log(event, menuRef);
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setBrandList(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, []);
+
+  const showProductItem = (category) => {
+    props.setSelectedCategory(category);
+  };
+
+  const history = useHistory();
+
+  const logOut = () => {
+    localStorage.removeItem("user");
+    history.push("/login");
+  };
+
+  const showCategoryItem = (categoryname) => {
+    console.log(categoryname);
+    props.setSelectedCategory2(categoryname);
+    console.log(props.selectedCategory2);
+  };
+
   return (
     <>
       <div>
         <nav className="bottom navbar navbar-light bg-light d-flex justify-content-betwwen">
           <a className="navbar-brand">
-            <MenuIcon onClick={() => setSideBar(true)} />
+            <MenuIcon
+              onClick={() => setSideBar(true)}
+              style={{ cursor: "pointer" }}
+            />
             <sup>
-              <Link to="/home">MERN Store</Link>
+              <Link to="/home" style={{ textDecoration: "none" }}>
+                MERN Store
+              </Link>
             </sup>
           </a>
-
+          {/* {!rememberMe && history.push("/login")} */}
           {showSideBar && (
             <div className="SideBar">
               <button className="btn1" onClick={() => setSideBar(false)}>
@@ -30,16 +69,44 @@ const Navbar = (props) => {
               <div className="Shop_List">
                 <ul>
                   <li>
-                    <Link to="#">Perfume</Link>
+                    <Link
+                      to={{ pathname: `/shop/Category/Perfume` }}
+                      onClick={() => {
+                        showCategoryItem("Perfume");
+                      }}
+                    >
+                      Perfume
+                    </Link>
                   </li>
                   <li>
-                    <Link to="#">Mens</Link>
+                    <Link
+                      to={{ pathname: `/shop/Category/Mens` }}
+                      onClick={() => {
+                        showCategoryItem("Men");
+                      }}
+                    >
+                      Mens
+                    </Link>
                   </li>
                   <li>
-                    <Link to="#">Bags</Link>
+                    <Link
+                      to={{ pathname: `/shop/Category/Bags` }}
+                      onClick={() => {
+                        showCategoryItem("Beg");
+                      }}
+                    >
+                      Bags
+                    </Link>
                   </li>
                   <li>
-                    <Link to="#">Shoes</Link>
+                    <Link
+                      to={{ pathname: `/shop/Category/Shoes` }}
+                      onClick={() => {
+                        showCategoryItem("Shoes");
+                      }}
+                    >
+                      Shoes
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -50,7 +117,11 @@ const Navbar = (props) => {
             <BiCart
               className="mt-1 mr-2 Right_side_bar"
               onClick={() => {
-                props.setShowRightSidebar(true);
+                if (!rememberMe) {
+                  history.push("/login");
+                } else {
+                  props.setShowRightSidebar(true);
+                }
               }}
             />
             {props.cartItems ? props.cartItems.length : 0} &nbsp;
@@ -63,39 +134,103 @@ const Navbar = (props) => {
                 {showBrandList ? <BiChevronDown /> : <BiChevronUp />}
               </button>
               {showBrandList && (
-                <div className="Brands_product">
+                <div ref={menuRef} className="Brands_product" id="test1">
                   <div className="Brand_header d-flex justify-content-between pt-2">
                     <h6 className="ml-4">Shop By Brands</h6>
-                    <Link>See All</Link>
+                    <Link
+                      to={{ pathname: `/shop` }}
+                      onClick={() => {
+                        props.setSelectedCategory(null);
+                        props.setSelectedCategory2(null);
+                      }}
+                    >
+                      See All
+                    </Link>
                   </div>
                   <hr className="mt-1" />
                   <div className="Brand_Name d-flex mt-1">
                     <ul className="Brand_Name_left">
                       <li>
-                        <Link to="#">Gucci</Link>
+                        <Link
+                          to={{ pathname: `/shop/Brand/Gucci` }}
+                          onClick={() => {
+                            showProductItem("Gucci");
+                          }}
+                        >
+                          Gucci
+                        </Link>
                       </li>
                       <li>
-                        <Link to="#">Polo</Link>
+                        <Link
+                          to={{ pathname: `/shop/Brand/Polo` }}
+                          onClick={() => {
+                            showProductItem("Polo");
+                          }}
+                        >
+                          Polo
+                        </Link>
                       </li>
                       <li>
-                        <Link to="#">Ralph Lauren</Link>
+                        <Link
+                          to={{ pathname: `/shop/Brand/Ralph-Lauren` }}
+                          onClick={() => {
+                            showProductItem("Ralph Lauren");
+                          }}
+                        >
+                          Ralph Lauren
+                        </Link>
                       </li>
                       <li>
-                        <Link to="#">Nike</Link>
+                        <Link
+                          to={{ pathname: `/shop/Brand/Nike` }}
+                          onClick={() => {
+                            showProductItem("Nike");
+                          }}
+                        >
+                          Nike
+                        </Link>
                       </li>
                     </ul>
                     <ul className="Brand_Name_right">
                       <li>
-                        <Link to="#">Calvin Klein</Link>
+                        <Link
+                          to={{ pathname: `/shop/Brand/Calvin-Klein` }}
+                          onClick={() => {
+                            showProductItem("Calvin Klein");
+                          }}
+                        >
+                          Calvin Klein
+                        </Link>
                       </li>
                       <li>
-                        <Link to="#">Tommy Hilfiger</Link>
+                        <Link
+                          to={{ pathname: `/shop/Brand/Tommy-Hilfiger` }}
+                          onClick={() => {
+                            showProductItem("Tommy Hilfiger");
+                          }}
+                        >
+                          Tommy Hilfiger
+                        </Link>
                       </li>
                       <li>
-                        <Link to="#">ppple</Link>
+                        <Link
+                          to={{ pathname: `/shop/Brand/apple` }}
+                          onClick={() => {
+                            showProductItem("apple");
+                          }}
+                        >
+                          apple
+                        </Link>
                       </li>
                       <li>
-                        <Link to="#">MERN</Link>
+                        <Link
+                          to={{ pathname: `/shop/Brand/MERN` }}
+                          onClick={() => {
+                            showProductItem("MERN");
+                          }}
+                        >
+                          MERN
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -103,14 +238,30 @@ const Navbar = (props) => {
               )}
             </div>
             <div className="Shop">
-              <Link to="/shop">Shop</Link>
+              <Link to="/shop" onClick={() => props.setSelectedCategory(null)}>
+                Shop
+              </Link>
             </div>
             <div className="dropdown">
-              <button className="dropbtn_welcome">Welcome</button>
-              <div className="dropdown-content">
-                <Link to="/login">Login</Link>
-                <Link to="/Signup">Sign Up</Link>
-              </div>
+              <button className="dropbtn_welcome">
+                {!rememberMe ? "Welcome" : rememberMe.name}
+              </button>
+              {!rememberMe ? (
+                <div className="dropdown-content">
+                  <Link to="/login">Login</Link>
+                  <Link to="/Signup">Sign Up</Link>
+                </div>
+              ) : (
+                <div className="dropdown-content">
+                  <Link
+                    onClick={() => {
+                      logOut();
+                    }}
+                  >
+                    Logout
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </nav>

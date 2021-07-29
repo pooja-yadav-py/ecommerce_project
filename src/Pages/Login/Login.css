@@ -40,6 +40,14 @@
     cursor: pointer;
     margin: 5px;
  }
+ hr{
+     width:100%;
+ }
+ span{
+     color:red;
+     margin-left: 10px;
+     
+ }
  .right_form button img{
      width: 18px;
      padding-right: 2px;

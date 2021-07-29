@@ -12,6 +12,9 @@
     
    
 }
+.form-check{
+    margin-top: 8px;
+}
 .form_container_signup button{
     background-color: rgb(63, 63, 241);
     color: white;
@@ -44,8 +47,6 @@
     margin-bottom: 5px;
     
  }
- 
- 
  .right_form_signup button{
     cursor: pointer;
     margin-left: 10px;

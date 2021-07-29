@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import "./RightSidebar.css";
+
 import { RiDeleteBin7Line } from "react-icons/ri";
 
 const RightSidebar = (props) => {
+  const history = useHistory();
+  const rememberMe=localStorage.getItem('user');
+  if(!rememberMe){history.push("/login")}
+
   console.log(props);
   const removeItem = (id) => {
     let cartItems = props.cartItems;
@@ -109,11 +114,13 @@ const RightSidebar = (props) => {
                   </div>
                 </div>
                 <div className="d-flex">
-                  <button className="footer_left_button mt-2 ml-5 p-1">
-                    Continue Shopping
+                   <button className="footer_left_button mt-2 ml-5 p-1 " 
+                     onClick={() => props.setShowRightSidebar(false)}>
+                   <Link to="/shop" className="footer_button_Link">Continue Shopping</Link>  
                   </button>
-                  <button className="footer_right_button mt-2 ml-4 p-1">
-                    Place Order
+                  <button className="footer_right_button mt-2 ml-4 p-1"
+                  onClick={() => props.setShowRightSidebar(false)}>
+                  <Link to="/Placeorder" className="footer_button_Link">Place Order</Link>
                   </button>
                 </div>
               </div>
