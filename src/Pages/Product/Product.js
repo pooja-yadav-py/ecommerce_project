@@ -18,6 +18,8 @@ const Product = (props) => {
         ShowRightSidebar={props.ShowRightSidebar}
         updateCartItems={props.updateCartItems}
         setSelectedCategory={props.setSelectedCategory}
+        setSelectedCategory2={props.setSelectedCategory2}
+        selectedCategory2={props.selectedCategory2}
       />
       <div className="row">
         <div className="row container product_container mx-auto">
@@ -27,8 +29,8 @@ const Product = (props) => {
             setShowRightSidebar={props.setShowRightSidebar}
             ShowRightSidebar={props.ShowRightSidebar}
           />
-          <div className="w-100 product_middle_part" />
-          <div className=" container  product_middle_part_inner w-100 row">
+          <div className="w-100 product_middle_part " />
+          <div className=" container  product_middle_part_inner w-100 row d-flex">
             <div className="col-md-5 product_rating ml-2">
               <div className="product_rating_inner">
                 <h5 className="pl-4 pt-3">Rating</h5>
@@ -42,15 +44,13 @@ const Product = (props) => {
                 </p>
               </div>
             </div>
-            <div className="col-md-5 product_goof">
-              <div></div>
+            <div className="Review">
+              <Review />
             </div>
           </div>
-          <div className="w-100 product_middle_part" />
-          <div className="col-md-5">
-            <div></div>
-          </div>
-          <Review />
+
+         
+         
         </div>
       </div>
       <Footer />

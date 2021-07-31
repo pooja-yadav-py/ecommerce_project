@@ -13,7 +13,6 @@ const Shop = (props) => {
 
   const rememberMe = localStorage.getItem("user");
 
-  console.log(items);
   if (!rememberMe) {
     history.push("/login");
   }
@@ -26,11 +25,9 @@ const Shop = (props) => {
     setSelectedProducts(
       items.filter((item) => item.companyName == props.selectedCategory)
     );
-    console.log(selectedProducts);
   }, [props.selectedCategory]);
 
   useEffect(() => {
-    console.log(props.selectedCategory2, "==============");
     if (!props.selectedCategory2) {
       setSelectedProducts(items);
       return;
@@ -41,7 +38,6 @@ const Shop = (props) => {
     );
   }, [props.selectedCategory2]);
 
-  console.log(selectedProducts, "=============12");
   return (
     <>
       <Topheader />

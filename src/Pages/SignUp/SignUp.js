@@ -8,7 +8,7 @@ import fb from "../../images/fb2.jpg";
 
 import "./SignUp.css";
 
-const SignUp = () => {
+const SignUp = (props) => {
     const history = useHistory();
     const [showError,setShowError] = useState(false);
     const [res,setRes] = useState("");
@@ -22,7 +22,6 @@ const SignUp = () => {
 
   let name, value;
   const handleInputs = (e) => {
-    console.log(e);
     name = e.target.name;
     value = e.target.value;
 
@@ -52,14 +51,12 @@ const SignUp = () => {
       },
     });
     let data = await response.json();
-    console.log(data);
     
     if(response.status==422){
        setRes(data.error);
      }else {
        setRes(data.message);
-       
-       console.log(user)
+      
        history.push('/Login');
      }
      setShowError(false);
@@ -70,7 +67,7 @@ const SignUp = () => {
   return (
     <>
       <TopHeader />
-      <Navbar />
+      <Navbar setSelectedCategory={ props.setSelectedCategory}/>
       <div className="container container_signup">
         <div className="inner-container">
           <div className="Login_headline">

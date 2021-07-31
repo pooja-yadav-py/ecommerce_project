@@ -10,28 +10,26 @@ const RightSidebar = (props) => {
   const rememberMe=localStorage.getItem('user');
   if(!rememberMe){history.push("/login")}
 
-  console.log(props);
   const removeItem = (id) => {
     let cartItems = props.cartItems;
-    console.log(id);
+    
     const productIndex = cartItems.findIndex((item) => {
-      console.log(item);
-      return item.id == id;
+     return item.id == id;
     });
-    console.log(productIndex);
+    
     cartItems = cartItems.filter((item, index) => {
       return productIndex != index;
     });
-    console.log(cartItems);
+   
     localStorage.setItem("product", JSON.stringify(cartItems));
     props.updateCartItems(cartItems);
-    console.log(props.cartItems);
+    
   };
   let sum = 0;
   props.cartItems.forEach((item) => {
     sum = sum + item.price * item.quantity;
   });
-  console.log(sum);
+  
 
   return (
     <>
@@ -59,7 +57,7 @@ const RightSidebar = (props) => {
                       price,
                       quantity,
                     } = elem;
-                    console.log(elem);
+                   
                     return (
                       <div className="scroll">
                         <hr />

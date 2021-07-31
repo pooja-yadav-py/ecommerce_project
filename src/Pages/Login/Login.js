@@ -9,7 +9,8 @@ import fb from "../../images/fb2.jpg";
 
 import "./Login.css";
 
-const Login = () => {
+const Login = (props) => {
+  
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,7 +39,7 @@ const Login = () => {
       },
     });
     let data = await response.json();
-    console.log(data);
+    
     if (response.status === 400 || !data) {
       setRes("Invalid Credentials");
     } else {
@@ -59,7 +60,9 @@ const Login = () => {
   return (
     <>
       <TopHeader />
-      <Navbar />
+      <Navbar 
+        setSelectedCategory={props.setSelectedCategory}
+      />
       <div className="container container_login">
         <div className="inner-container">
           <div className="Login_headline">

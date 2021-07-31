@@ -13,11 +13,8 @@ const App = () => {
     ? JSON.parse(localStorage.getItem("product"))
     : [];
   const [cartItems, updateCartItems] = useState(initialState);
-
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedCategory2, setSelectedCategory2] = useState(null);
-
-  console.log(initialState);
   const [ShowRightSidebar, setShowRightSidebar] = useState(false);
 
   return (
@@ -55,8 +52,36 @@ const App = () => {
             />
           )}
         />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={SignUp} />
+        <Route path="/login" 
+         render={(props) => (
+            <Login
+              {...props}
+              cartItems={cartItems}
+              ShowRightSidebar={ShowRightSidebar}
+              updateCartItems={updateCartItems}
+              setShowRightSidebar={setShowRightSidebar}
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+              setSelectedCategory2={setSelectedCategory2}
+              selectedCategory2={selectedCategory2}
+            />
+          )}
+           />
+        <Route path="/signup" 
+        render={(props) => (
+            <SignUp
+              {...props}
+              cartItems={cartItems}
+              ShowRightSidebar={ShowRightSidebar}
+              updateCartItems={updateCartItems}
+              setShowRightSidebar={setShowRightSidebar}
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+              setSelectedCategory2={setSelectedCategory2}
+              selectedCategory2={selectedCategory2}
+            />
+          )}
+           />
 
         <Route
           path="/placeorder"
@@ -69,6 +94,8 @@ const App = () => {
               setShowRightSidebar={setShowRightSidebar}
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
+              setSelectedCategory2={setSelectedCategory2}
+              selectedCategory2={selectedCategory2}
             />
           )}
         />
@@ -82,6 +109,8 @@ const App = () => {
               updateCartItems={updateCartItems}
               setShowRightSidebar={setShowRightSidebar}
               setSelectedCategory={setSelectedCategory}
+              setSelectedCategory2={setSelectedCategory2}
+              selectedCategory2={selectedCategory2}
             />
           )}
         />

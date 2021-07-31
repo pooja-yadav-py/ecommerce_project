@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import "./Placeorder.css";
 
 const Placeorder = (props) => {
-  console.log(props);
+  
   return (
     <>
       <Topheader />
@@ -18,6 +18,8 @@ const Placeorder = (props) => {
         numberOfProduct={props.numberOfProduct}
         setNumberOfProduct={props.setNumberOfProduct}
         setSelectedCategory={props.setSelectedCategory}
+        setSelectedCategory2={props.setSelectedCategory2}
+        selectedCategory2={props.selectedCategory2}
       />
       <div className="container outer_Container">
         <div className="inner_Container">

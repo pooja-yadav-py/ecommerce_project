@@ -8,7 +8,14 @@
     outline: none;
     
 }
+.carditem_number{
+    height: 15px;
+    margin-left: -1px  !important;
+    background-color: #2196f35e;
+    border-radius: 27px;
+    padding: 0px 3px 0px 3px;
 
+}
 
 .Brands_product{
     position: absolute;

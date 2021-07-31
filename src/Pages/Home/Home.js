@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import "./Home.css";
 
 const Home = (props) => {
-  console.log(props);
+  
   const history = useHistory();
   const rememberMe = localStorage.getItem("user");
   if (!rememberMe) {

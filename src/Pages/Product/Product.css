@@ -105,6 +105,11 @@
     margin-top: 20px;
     width: 90%;
     background-color: blue;
+   
+}
+.product_middle_part .Review{
+    margin-left:14px;
+    box-sizing: border-box;
 }
 .product_rating .product_rating_inner{
     width: 400px;

@@ -6,17 +6,16 @@ import { Link, useHistory } from "react-router-dom";
 import RightSidebar from "./RightSidebar";
 
 const Navbar = (props) => {
-  console.log(props);
+  
   const rememberMe = JSON.parse(localStorage.getItem("user"));
   const [showSideBar, setSideBar] = useState(false);
   const [showBrandList, setBrandList] = useState(false);
 
   let menuRef = useRef();
-  console.log(menuRef);
+  
   useEffect(() => {
     const handleClick = (event) => {
-      console.log(event, menuRef);
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+     if (menuRef.current && !menuRef.current.contains(event.target)) {
         setBrandList(false);
       }
     };
@@ -38,18 +37,33 @@ const Navbar = (props) => {
   };
 
   const showCategoryItem = (categoryname) => {
-    console.log(categoryname);
-    props.setSelectedCategory2(categoryname);
-    console.log(props.selectedCategory2);
+   props.setSelectedCategory2(categoryname);
   };
 
+  const sideBar=()=>{
+    if(!rememberMe){
+      history.push("/login");
+    }else{
+      setSideBar(true);
+    }
+    
+  }
+
+  const brandList = () => {
+    if(!rememberMe){
+      history.push("/login");
+    }else{
+      setBrandList(!showBrandList);
+    }
+  }
+  
   return (
     <>
       <div>
         <nav className="bottom navbar navbar-light bg-light d-flex justify-content-betwwen">
           <a className="navbar-brand">
             <MenuIcon
-              onClick={() => setSideBar(true)}
+              onClick={() => sideBar()}
               style={{ cursor: "pointer" }}
             />
             <sup>
@@ -58,7 +72,7 @@ const Navbar = (props) => {
               </Link>
             </sup>
           </a>
-          {/* {!rememberMe && history.push("/login")} */}
+          
           {showSideBar && (
             <div className="SideBar">
               <button className="btn1" onClick={() => setSideBar(false)}>
@@ -114,21 +128,23 @@ const Navbar = (props) => {
           )}
 
           <div className="navbar_right_items d-flex justify-content-end ">
-            <BiCart
-              className="mt-1 mr-2 Right_side_bar"
+            
+            <div className="mt-1 mr-2 Right_side_bar"
               onClick={() => {
                 if (!rememberMe) {
                   history.push("/login");
                 } else {
                   props.setShowRightSidebar(true);
                 }
-              }}
-            />
-            {props.cartItems ? props.cartItems.length : 0} &nbsp;
+              }}>
+                <BiCart/>
+                <bold><sup className="carditem_number">{props.cartItems ? props.cartItems.length : 0}</sup></bold> &nbsp; 
+
+            </div>
             <div className="dropdown">
               <button
                 className="Brandbtn"
-                onClick={() => setBrandList(!showBrandList)}
+                onClick={() => brandList()}
               >
                 Brands
                 {showBrandList ? <BiChevronDown /> : <BiChevronUp />}
