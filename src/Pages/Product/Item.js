@@ -30,7 +30,7 @@ const Item = (props) => {
       product.quantity = numberOfProduct;
       props.updateCartItems([...props.cartItems, product]);
       localStorage.setItem(
-        "product",
+        "cartItems",
         JSON.stringify([...props.cartItems, product])
       );
     } else {

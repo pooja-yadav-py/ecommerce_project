@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import TopHeader from "../../components/Topheader";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -15,7 +14,8 @@ const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showError, setShowError] = useState(false);
-  const [res, setRes] = useState("");
+  const [serverResponse, setServerResponse] = useState("");
+  
 
   const loginUser = async () => {
     if (!email || !password.trim()) {
@@ -39,16 +39,17 @@ const Login = (props) => {
       },
     });
     let data = await response.json();
+    console.log(data);
     
     if (response.status === 400 || !data) {
-      setRes("Invalid Credentials");
+      setServerResponse("Invalid Credentials");
     } else {
-      setRes("Login Successfully");
+      setServerResponse("Login Successfully");
       localStorage.setItem(
         "user",
         JSON.stringify({
-          email: data.result.email,
           name: data.result.firstname,
+          token:data.token
         })
       );
 
@@ -95,7 +96,7 @@ const Login = (props) => {
                   />
                 </div>
               </div>
-              {res.length ? <span>{res}</span> : ""}
+              {serverResponse.length ? <span>{serverResponse}</span> : ""}
               {showError ? <span>Email or password can not be blank</span> : ""}
               <div className="form_bottom d-flex">
                 <button

@@ -7,7 +7,6 @@ import { useHistory } from "react-router-dom";
 import "./Home.css";
 
 const Home = (props) => {
-  
   const history = useHistory();
   const rememberMe = localStorage.getItem("user");
   if (!rememberMe) {
@@ -25,8 +24,8 @@ const Home = (props) => {
         setNumberOfProduct={props.setNumberOfProduct}
         setSelectedCategory={props.setSelectedCategory}
         selectedProducts={props.selectedProducts}
-        setSelectedCategory2={props.setSelectedCategory2}
-        selectedCategory2={props.selectedCategory2}
+        setSelectedCategorySideBar={props.setSelectedCategorySideBar}
+        selectedCategorySideBar={props.selectedCategorySideBar}
       />
       <ImagePart />
       <Footer />

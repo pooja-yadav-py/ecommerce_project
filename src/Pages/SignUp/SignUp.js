@@ -9,9 +9,10 @@ import fb from "../../images/fb2.jpg";
 import "./SignUp.css";
 
 const SignUp = (props) => {
-    const history = useHistory();
-    const [showError,setShowError] = useState(false);
-    const [res,setRes] = useState("");
+  const history = useHistory();
+  const [showError,setShowError] = useState(false);
+  const [res,setRes] = useState("");
+  // change name of state
   const [user, setUser] = useState({
     email: "",
     firstname: "",
@@ -20,14 +21,12 @@ const SignUp = (props) => {
   });
   
 
-  let name, value;
+  
   const handleInputs = (e) => {
-    name = e.target.name;
-    value = e.target.value;
-
-    setUser({ ...user, [name]: value });
+    setUser({ ...user, [ e.target.name]: e.target.value });
   };
   const registerUser = async () =>{
+    // use trim with other also
     if (!user.email || !user.firstname || !user.lastname || !user.password.trim()){
         setShowError(true);
         return;
@@ -60,7 +59,6 @@ const SignUp = (props) => {
        history.push('/Login');
      }
      setShowError(false);
-     
   }
 
   

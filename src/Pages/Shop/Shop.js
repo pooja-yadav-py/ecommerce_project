@@ -17,26 +17,28 @@ const Shop = (props) => {
     history.push("/login");
   }
 
+  
   useEffect(() => {
     if (!props.selectedCategory) {
       setSelectedProducts(items);
       return;
     }
+    //get seleted item from brand 
     setSelectedProducts(
       items.filter((item) => item.companyName == props.selectedCategory)
     );
   }, [props.selectedCategory]);
 
   useEffect(() => {
-    if (!props.selectedCategory2) {
+    if (!props.selectedCategorySideBar) {
       setSelectedProducts(items);
       return;
     }
-
+    //get selected item from sidebar
     setSelectedProducts(
-      items.filter((item) => item.category == props.selectedCategory2)
+      items.filter((item) => item.category == props.selectedCategorySideBar)
     );
-  }, [props.selectedCategory2]);
+  }, [props.selectedCategorySideBar]);
 
   return (
     <>
@@ -48,8 +50,8 @@ const Shop = (props) => {
         updateCartItems={props.updateCartItems}
         items={items}
         setSelectedCategory={props.setSelectedCategory}
-        setSelectedCategory2={props.setSelectedCategory2}
-        selectedCategory2={props.selectedCategory2}
+        setSelectedCategorySideBar={props.setSelectedCategorySideBar}
+        selectedCategorySideBar={props.selectedCategorySideBar}
       />
 
       <div className=" box_shop ">
@@ -57,13 +59,11 @@ const Shop = (props) => {
           {selectedProducts.length ? (
             selectedProducts.map((elem) => {
               const {
-                id,
                 image,
                 title,
                 companyName,
                 description,
-                price,
-                quantity,
+                price
               } = elem;
               return (
                 <Link
@@ -95,7 +95,7 @@ const Shop = (props) => {
             })
           ) : (
             <div className="empty_Selected_Product">
-              🙅 There is no products in category{props.selectedCategory} 🙅
+              🙅 There is no products in category {props.selectedCategory} 🙅
             </div>
           )}
         </div>

@@ -18,8 +18,8 @@ const Product = (props) => {
         ShowRightSidebar={props.ShowRightSidebar}
         updateCartItems={props.updateCartItems}
         setSelectedCategory={props.setSelectedCategory}
-        setSelectedCategory2={props.setSelectedCategory2}
-        selectedCategory2={props.selectedCategory2}
+        setSelectedCategorySideBar={props.setSelectedCategorySideBar}
+        selectedCategorySideBar={props.selectedCategorySideBar}
       />
       <div className="row">
         <div className="row container product_container mx-auto">

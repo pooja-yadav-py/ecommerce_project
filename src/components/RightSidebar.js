@@ -8,7 +8,8 @@ import { RiDeleteBin7Line } from "react-icons/ri";
 const RightSidebar = (props) => {
   const history = useHistory();
   const rememberMe=localStorage.getItem('user');
-  if(!rememberMe){history.push("/login")}
+  if(!rememberMe)
+  {history.push("/login")}
 
   const removeItem = (id) => {
     let cartItems = props.cartItems;
@@ -21,9 +22,8 @@ const RightSidebar = (props) => {
       return productIndex != index;
     });
    
-    localStorage.setItem("product", JSON.stringify(cartItems));
+    localStorage.setItem("carItems", JSON.stringify(cartItems));
     props.updateCartItems(cartItems);
-    
   };
   let sum = 0;
   props.cartItems.forEach((item) => {
@@ -52,8 +52,6 @@ const RightSidebar = (props) => {
                       id,
                       image,
                       title,
-                      companyName,
-                      description,
                       price,
                       quantity,
                     } = elem;

@@ -5,16 +5,16 @@ import Shop from "./Pages/Shop/Shop";
 import Login from "./Pages/Login/Login";
 import SignUp from "./Pages/SignUp/SignUp";
 import Product from "./Pages/Product/Product";
-import Menu from "./components/Menu";
 import Placeorder from "./Pages/Placeorder/Placeorder";
 
 const App = () => {
-  const initialState = JSON.parse(localStorage.getItem("product"))
-    ? JSON.parse(localStorage.getItem("product"))
+ 
+  const initialState = JSON.parse(localStorage.getItem("cartItems"))
+    ? JSON.parse(localStorage.getItem("cartItems"))
     : [];
   const [cartItems, updateCartItems] = useState(initialState);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [selectedCategory2, setSelectedCategory2] = useState(null);
+  const [selectedCategorySideBar, setSelectedCategorySideBar] = useState(null);
   const [ShowRightSidebar, setShowRightSidebar] = useState(false);
 
   return (
@@ -30,8 +30,8 @@ const App = () => {
               updateCartItems={updateCartItems}
               setShowRightSidebar={setShowRightSidebar}
               setSelectedCategory={setSelectedCategory}
-              setSelectedCategory2={setSelectedCategory2}
-              selectedCategory2={selectedCategory2}
+              setSelectedCategorySideBar={setSelectedCategorySideBar}
+              selectedCategorySideBar={selectedCategorySideBar}
             />
           )}
         />
@@ -47,8 +47,8 @@ const App = () => {
               setShowRightSidebar={setShowRightSidebar}
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
-              setSelectedCategory2={setSelectedCategory2}
-              selectedCategory2={selectedCategory2}
+              setSelectedCategorySideBar={setSelectedCategorySideBar}
+              selectedCategorySideBar={selectedCategorySideBar}
             />
           )}
         />
@@ -56,14 +56,7 @@ const App = () => {
          render={(props) => (
             <Login
               {...props}
-              cartItems={cartItems}
-              ShowRightSidebar={ShowRightSidebar}
-              updateCartItems={updateCartItems}
-              setShowRightSidebar={setShowRightSidebar}
-              selectedCategory={selectedCategory}
-              setSelectedCategory={setSelectedCategory}
-              setSelectedCategory2={setSelectedCategory2}
-              selectedCategory2={selectedCategory2}
+               setSelectedCategory={setSelectedCategory}
             />
           )}
            />
@@ -71,14 +64,7 @@ const App = () => {
         render={(props) => (
             <SignUp
               {...props}
-              cartItems={cartItems}
-              ShowRightSidebar={ShowRightSidebar}
-              updateCartItems={updateCartItems}
-              setShowRightSidebar={setShowRightSidebar}
-              selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
-              setSelectedCategory2={setSelectedCategory2}
-              selectedCategory2={selectedCategory2}
             />
           )}
            />
@@ -94,8 +80,8 @@ const App = () => {
               setShowRightSidebar={setShowRightSidebar}
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
-              setSelectedCategory2={setSelectedCategory2}
-              selectedCategory2={selectedCategory2}
+              setSelectedCategorySideBar={setSelectedCategorySideBar}
+              selectedCategorySideBar={selectedCategorySideBar}
             />
           )}
         />
@@ -109,8 +95,8 @@ const App = () => {
               updateCartItems={updateCartItems}
               setShowRightSidebar={setShowRightSidebar}
               setSelectedCategory={setSelectedCategory}
-              setSelectedCategory2={setSelectedCategory2}
-              selectedCategory2={selectedCategory2}
+              setSelectedCategorySideBar={setSelectedCategorySideBar}
+              selectedCategorySideBar={selectedCategorySideBar}
             />
           )}
         />
