@@ -21,7 +21,7 @@ const Item = (props) => {
     return elemPath.id === item;
   });
   const [addCartEnable, setAddCartEnable] = useState(
-    productid[0] == elemPath.id
+    productid[0] === elemPath.id
   );
 
   const updatedCardHandler = (product) => {
@@ -35,10 +35,10 @@ const Item = (props) => {
       );
     } else {
       const proIndex = props.cartItems.findIndex(
-        (item) => item.id == product.id
+        (item) => item.id === product.id
       );
       const updatedData = props.cartItems.filter(
-        (item, index) => index != proIndex
+        (item, index) => index !== proIndex
       );
       props.updateCartItems([...updatedData]);
       localStorage.setItem("product", JSON.stringify([...updatedData]));
@@ -81,19 +81,19 @@ const Item = (props) => {
               placeholder="Product Quality"
             />
             <div className="d-flex row">
-              <a href="https://www.facebook.com/" target="_blank">
+              <a href="https://www.facebook.com/" target="example">
                 {" "}
                 <img className="fb" src={fb} alt="fb" />
               </a>
-              <a href="https://twitter.com/" target="_blank">
+              <a href="https://twitter.com/" target="example">
                 {" "}
                 <img className="twitter" src={twitter} alt="twitter" />
               </a>
-              <a href="https://web.whatsapp.com/" target="_blank">
+              <a href="https://web.whatsapp.com/" target="example">
                 {" "}
                 <img className="whtsapp" src={whatsapp} alt="whtsapp" />
               </a>
-              <a href="https://mail.google.com/mail/" target="_blank">
+              <a href="https://mail.google.com/mail/" target="example">
                 {" "}
                 <img className="mail" src={mail} alt="mail" />
               </a>

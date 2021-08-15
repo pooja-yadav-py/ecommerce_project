@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Shop from "./Pages/Shop/Shop";
@@ -6,7 +6,7 @@ import Login from "./Pages/Login/Login";
 import SignUp from "./Pages/SignUp/SignUp";
 import Product from "./Pages/Product/Product";
 import Placeorder from "./Pages/Placeorder/Placeorder";
-
+import CreateProduct from "./Pages/CreateProduct/CreateProduct";
 const App = () => {
  
   const initialState = JSON.parse(localStorage.getItem("cartItems"))
@@ -29,6 +29,23 @@ const App = () => {
               ShowRightSidebar={ShowRightSidebar}
               updateCartItems={updateCartItems}
               setShowRightSidebar={setShowRightSidebar}
+              setSelectedCategory={setSelectedCategory}
+              setSelectedCategorySideBar={setSelectedCategorySideBar}
+              selectedCategorySideBar={selectedCategorySideBar}
+            />
+          )}
+        />
+
+        <Route
+          path="/createProduct"
+          render={(props) => (
+            <CreateProduct
+              {...props}
+              cartItems={cartItems}
+              ShowRightSidebar={ShowRightSidebar}
+              updateCartItems={updateCartItems}
+              setShowRightSidebar={setShowRightSidebar}
+              selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
               setSelectedCategorySideBar={setSelectedCategorySideBar}
               selectedCategorySideBar={selectedCategorySideBar}

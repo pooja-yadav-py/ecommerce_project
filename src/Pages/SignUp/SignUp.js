@@ -51,7 +51,7 @@ const SignUp = (props) => {
     });
     let data = await response.json();
     
-    if(response.status==422){
+    if(response.status===422){
        setRes(data.error);
      }else {
        setRes(data.message);
@@ -127,16 +127,7 @@ const SignUp = (props) => {
                   {showError?<span>plz filled the field properly</span>:""}
                   {res.length?<span>{res}</span>:""}
 
-                  <div className="form-check">
-                    <input
-                      type="checkbox"
-                      className="form-check-input"
-                      id="exampleCheck1"
-                    />
-                    <label className="form-check-label" htmlFor="exampleCheck1">
-                      Subscribe To Newsletters
-                    </label>
-                  </div>
+                 
                   <button  name="signup" id="signup" 
                       className="btn  pl-4 pr-4 ml-0 mt-4" 
                       onClick={() => {registerUser()} }>

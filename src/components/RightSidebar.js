@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link,useHistory } from "react-router-dom";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import "./RightSidebar.css";
@@ -15,11 +15,11 @@ const RightSidebar = (props) => {
     let cartItems = props.cartItems;
     
     const productIndex = cartItems.findIndex((item) => {
-     return item.id == id;
+     return item.id === id;
     });
     
     cartItems = cartItems.filter((item, index) => {
-      return productIndex != index;
+      return productIndex !== index;
     });
    
     localStorage.setItem("carItems", JSON.stringify(cartItems));

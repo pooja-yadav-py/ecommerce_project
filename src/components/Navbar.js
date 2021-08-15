@@ -5,10 +5,12 @@ import "./Navbar.css";
 import { Link, useHistory } from "react-router-dom";
 import RightSidebar from "./RightSidebar";
 
+
 const Navbar = (props) => {
   const rememberMe = JSON.parse(localStorage.getItem("user"));
   const [showSideBar, setSideBar] = useState(false);
   const [showBrandList, setBrandList] = useState(false);
+  
   const history = useHistory();
   let menuRef = useRef();
 
@@ -59,6 +61,8 @@ const Navbar = (props) => {
     }
   };
 
+  
+
   //showHide right_side_bar or ordered Item list
   const showOrderedItemsList = () => {
     if (!rememberMe) {
@@ -67,6 +71,10 @@ const Navbar = (props) => {
       props.setShowRightSidebar(true);
     }
   };
+
+  // const clickTest = () => {
+  //  axios.post("http://localhost:8080/test?name=pooja&age=24")
+  // }
 
   //sidebar Menu list
   let sideBarMenus = [
@@ -92,7 +100,7 @@ const Navbar = (props) => {
     <>
       <div>
         <nav className="bottom navbar navbar-light bg-light d-flex justify-content-betwwen">
-          <a className="navbar-brand">
+          <a className="navbar-brand" href="#">
             <MenuIcon
               onClick={() => showHideSideBar()}
               style={{ cursor: "pointer" }}
@@ -133,6 +141,14 @@ const Navbar = (props) => {
           )}
 
           <div className="navbar_right_items d-flex justify-content-end ">
+
+          {(rememberMe)?
+          <div className="create_btn">
+          <Link to="/createProduct">
+              <button className="create_button">Create</button>
+          </Link>
+          </div>:""}
+
             <div
               className="mt-1 mr-2 Right_side_bar"
               onClick={() => showOrderedItemsList()}

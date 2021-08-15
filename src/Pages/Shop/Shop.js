@@ -25,7 +25,7 @@ const Shop = (props) => {
     }
     //get seleted item from brand 
     setSelectedProducts(
-      items.filter((item) => item.companyName == props.selectedCategory)
+      items.filter((item) => item.companyName === props.selectedCategory)
     );
   }, [props.selectedCategory]);
 

@@ -16,7 +16,19 @@
     padding: 0px 3px 0px 3px;
 
 }
-
+.create_button{
+ outline: none;
+ cursor: pointer;
+ border: none;
+ background-color: transparent;
+}
+.create_button:hover{
+  
+  background-color: rgb(216, 211, 211);
+}
+.create_button:focus{
+  outline:none;
+}
 .Brands_product{
     position: absolute;
     top: 30px;

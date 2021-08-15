@@ -49,7 +49,9 @@ const Login = (props) => {
         "user",
         JSON.stringify({
           name: data.result.firstname,
-          token:data.token
+          id:data.result.email,
+          token: data.token     
+         
         })
       );
 

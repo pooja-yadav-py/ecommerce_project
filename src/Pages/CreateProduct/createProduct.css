@@ -1,0 +1,91 @@
+.parent_container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+}
+.child_container{
+    padding:5px 0px 5px 20px;
+    margin-top: 20px;
+    width: 35%;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px #000000;
+}
+label{
+    width:95%;
+    color:black !important;
+    font-weight: 500;
+}
+ input{
+    width: 95%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #8080804d;
+    border: 1px solid gray;    
+}
+textarea{
+    width: 95%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #8080804d;
+    border: 1px solid gray;   
+}
+.selectCategory{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+   
+}
+.selectCategory select{
+ border-radius: 5px;
+ background-color: #8080804d;
+}
+.selectCategory option{
+    background-color: #fff;
+}
+
+
+.selectCategory select:focus{
+    outline:none;
+}
+.selectCategory select:hover{
+    box-shadow: 0 0 5px #000000;
+}
+#submit_btn{
+ cursor: pointer;
+}
+#submit_btn:hover{
+    background-color: gray;
+    font-weight: bold;
+}
+ 
+input:hover{
+    box-shadow: 0 0 5px #000000;
+}
+input:focus{
+    outline: none;
+}
+textarea:hover{
+    box-shadow: 0 0 5px #000000;
+}
+textarea:focus{
+    outline:none;
+}
+::placeholder{
+    color:black;
+    font-size: 14px;
+}
+.create_product_btn{
+    width: 40%;
+    margin-left:28%;
+    border:1px solid gray;
+    background-color: black;
+    color:white;
+    letter-spacing: 2px;
+}
+.create_product_btn:hover{
+background-color: blue;
+font-weight: bold;
+color:white;
+outline:none;
+}
