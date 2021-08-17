@@ -14,14 +14,14 @@ const Item = (props) => {
 
   const elemPath = location.state.elem;
   const value = props.cartItems.map((val, index) => {
-    return val.id;
+    return val._id;
   });
 
   const productid = value.filter((item, index) => {
-    return elemPath.id === item;
+    return elemPath._id === item;
   });
   const [addCartEnable, setAddCartEnable] = useState(
-    productid[0] === elemPath.id
+    productid[0] === elemPath._id
   );
 
   const updatedCardHandler = (product) => {
@@ -35,7 +35,7 @@ const Item = (props) => {
       );
     } else {
       const proIndex = props.cartItems.findIndex(
-        (item) => item.id === product.id
+        (item) => item._id === product._id
       );
       const updatedData = props.cartItems.filter(
         (item, index) => index !== proIndex
@@ -49,9 +49,9 @@ const Item = (props) => {
     <>
       <div className="col-md-5 product_img">
         <img
-          className="card-img-top"
-          src={elemPath.image}
-          alt="Card image cap"
+          className="card-selectFile-top"
+          src={elemPath.selectedFile}
+          alt="Card selectFile cap"
         />
       </div>
       <div className="col-md-5 product_details">

@@ -36,7 +36,7 @@ const footer = () => {
                   placeholder="Please Enter Your Email"
                   aria-label="Search"
                 />
-                <button className="btn btn-sm my-1 my-sm-0" type="submit">
+                <button className="btn btn-sm my-sm-0" type="submit">
                   Subscribe
                 </button>
               </form>

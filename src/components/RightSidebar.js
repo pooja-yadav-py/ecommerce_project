@@ -2,7 +2,6 @@ import React from "react";
 import { Link,useHistory } from "react-router-dom";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import "./RightSidebar.css";
-
 import { RiDeleteBin7Line } from "react-icons/ri";
 
 const RightSidebar = (props) => {
@@ -50,7 +49,7 @@ const RightSidebar = (props) => {
                   {props.cartItems.map((elem) => {
                     const {
                       id,
-                      image,
+                      selectedFile,
                       title,
                       price,
                       quantity,
@@ -59,9 +58,9 @@ const RightSidebar = (props) => {
                     return (
                       <div className="scroll">
                         <hr />
-                        <div className="product_list_rightSidebar d-flex flex-row ml-2">
+                        <div className="product_list_rightSidebar d-flex flex-row ml-2" key="{elem}">
                           <div>
-                            <img src={image} alt="image" />
+                            <img src={selectedFile} alt="selectedFile" />
                           </div>
                           <div className="product_name">
                             <p>

@@ -7,6 +7,7 @@ import RightSidebar from "./RightSidebar";
 
 
 const Navbar = (props) => {
+  console.log(props)
   const rememberMe = JSON.parse(localStorage.getItem("user"));
   const [showSideBar, setSideBar] = useState(false);
   const [showBrandList, setBrandList] = useState(false);
@@ -256,6 +257,7 @@ const Navbar = (props) => {
           updateCartItems={props.updateCartItems}
           numberOfProduct={props.numberOfProduct}
           setNumberOfProduct={props.setNumberOfProduct}
+          
         />
       )}
     </>

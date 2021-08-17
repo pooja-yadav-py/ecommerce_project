@@ -2,27 +2,37 @@ import React, { useState } from "react";
 import Topheader from "../../components/Topheader";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { useHistory } from "react-router";
 import "./createProduct.css";
 
-const CreateProduct = (props) => {  
+const CreateProduct = (props) => {
+  const history = useHistory();
+  const [createProduct, setCreateProduct] = useState({
+    title: "",
+    companyName: "",
+    category: "",
+    description: "",
+    price: "",
+    selectedFile: "",
+    userId: "",
+  });
   const rememberMe = JSON.parse(localStorage.getItem("user"));
-  
-  const [res,setRes] = useState("");
+
+  // const [res,setRes] = useState("");
   const [inputField, setInputField] = useState({
     title: "",
     companyName: "",
     category: "",
     description: "",
     price: "",
-    quantity: "",
     selectedFile: "",
-    userId:""
+    userId: "",
   });
 
   const handleInput = (event) => {
     const value = event.target.value;
     const name = event.target.name;
-    setInputField({ ...inputField, [name]: value ,userId:rememberMe.id });
+    setInputField({ ...inputField, [name]: value, userId: rememberMe.id });
   };
 
   const handleInputFile = async (event) => {
@@ -50,38 +60,42 @@ const CreateProduct = (props) => {
 
   const createFormSubmit = async (e) => {
     //check for all input filed are fill
-    if(!inputField.title || !inputField.companyName || !inputField.category || !inputField.description || !inputField.price || !inputField.quantity || !inputField.selectedFile ){
+    if (
+      !inputField.title ||
+      !inputField.companyName ||
+      !inputField.category ||
+      !inputField.description ||
+      !inputField.price ||
+      !inputField.selectedFile
+    ) {
       alert("plz fill all filed");
       return;
-    }else{
+    } else {
       alert("congrate form submit");
-     
     }
-    
+
     const response = await fetch(`http://localhost:8080/createProduct`, {
       // Adding method type
       method: "POST",
 
       // Adding body or contents to send
       body: JSON.stringify({
-        title:inputField.title,
-        companyName:inputField.companyName,
-        category:inputField.category,
-        description:inputField.description,
-        price:inputField.price,
-        quantity:inputField.quantity,
-        selectedFile:inputField.selectedFile,
-        userId:inputField.userId
+        title: inputField.title,
+        companyName: inputField.companyName,
+        category: inputField.category,
+        description: inputField.description,
+        price: inputField.price,
+        selectedFile: inputField.selectedFile,
+        userId: inputField.userId,
       }),
       // Adding headers to the request
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-      }
+      },
+      
     });
-    
-    let data = await response.json();
-    console.log(data);
-  }
+    history.push("/shop");
+  };
 
   return (
     <>
@@ -94,13 +108,10 @@ const CreateProduct = (props) => {
         setSelectedCategory={props.setSelectedCategory}
         setSelectedCategorySideBar={props.setSelectedCategorySideBar}
         selectedCategorySideBar={props.selectedCategorySideBar}
+        createProduct={createProduct}
       />
-      {/* <div>
-        <h1>{inputField.title} and {inputField.companyName} and {inputField.category} and 
-        {inputField.description} and {inputField.price} and {inputField.quantity}</h1>
-        <img src = {inputField.selectedFile} width="100px"/>
-      </div> */}
-      <img src = {inputField.selectedFile} width="100px"/>
+
+      <img src={inputField.selectedFile} width="100px" />
       <div className="parent_container">
         <div className="child_container">
           <label>Title</label>
@@ -154,16 +165,6 @@ const CreateProduct = (props) => {
             placeholder="Enter Price"
             onChange={handleInput}
             value={inputField.price}
-          />
-          <label>Quantity</label>
-          <input
-            type="number"
-            min="1"
-            name="quantity"
-            id="quantity"
-            placeholder="Enter Quantity"
-            onChange={handleInput}
-            value={inputField.quantity}
           />
           <label>Select Image:</label>
           <input

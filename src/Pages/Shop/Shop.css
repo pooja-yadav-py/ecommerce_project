@@ -5,12 +5,15 @@
     height: 300px;
     cursor: pointer;
     margin-bottom: 0px;
+    box-sizing: border-box;
     
 
 }
-/* .box_shop{
-    background:linear-gradient(133deg, rgb(193, 215, 218) 40%, rgb(224, 243, 178)) ;
-} */
+.card_innerpart{
+    height: 270px;
+    box-sizing: border-box;
+}
+
 
 .card_shop img{
     width: 14rem;
@@ -18,7 +21,7 @@
     border-radius: 0px;
 }
 .box_shop_list{
-    margin-left: 37px;
+    margin-left: 8%;
     width: 100%;
     
 }
